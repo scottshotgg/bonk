@@ -11,18 +11,25 @@ import (
 
 type (
 	Basic struct {
-		paths map[string]struct{}
+		paths      map[string]struct{}
+		userAgents map[string]struct{}
 	}
 )
 
-func New(ps []string) *Basic {
+func New(ps, uas []string) *Basic {
 	var paths = map[string]struct{}{}
 	for _, path := range ps {
 		paths[path] = struct{}{}
 	}
 
+	var useragents = map[string]struct{}{}
+	for _, useragent := range uas {
+		useragents[useragent] = struct{}{}
+	}
+
 	return &Basic{
-		paths: paths,
+		paths:      paths,
+		userAgents: useragents,
 	}
 }
 
@@ -80,6 +87,12 @@ func (b *Basic) Run(line []byte) (net.IP, bool, error) {
 	// OR just a list of paths maybe
 	for path := range b.paths {
 		if strings.Contains(l.Request.URI, path) {
+			return l.Remote.Address, true, nil
+		}
+	}
+
+	for userAgent := range b.userAgents {
+		if strings.Contains(l.Base.HTTPUserAgent, userAgent) {
 			return l.Remote.Address, true, nil
 		}
 	}

@@ -129,8 +129,12 @@ func (c *Controller) watchPodLogs(ctx context.Context, pod core_v1.Pod) error {
 			"cgi-bin",
 		}
 
+		userAgents = []string{
+			"zgrab",
+		}
+
 		// TODO: need to make this configurable
-		engine engine.Engine = engine_basic.New(paths)
+		engine engine.Engine = engine_basic.New(paths, userAgents)
 		br                   = bufio.NewReader(stream)
 	)
 
@@ -154,7 +158,7 @@ func (c *Controller) watchPodLogs(ctx context.Context, pod core_v1.Pod) error {
 		// fmt.Println(string(line))
 
 		if shouldBan {
-			fmt.Println("Banning IP:", ip)
+			fmt.Println("bonk:", ip)
 			// // TODO: take this out
 			// var _, banned = bannedIPs[l.Remote.Address.String()]
 			// if banned {
