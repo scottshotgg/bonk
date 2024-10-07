@@ -1,0 +1,32 @@
+{
+  "remote": {
+    "addr": "43.130.62.164",
+    "user": ""
+  },
+  "request": {
+    "id": "c5368d5f92d3a7f25c9eb95ba8da0308",
+    "method": "GET",
+    "uri": "/",
+    "completion": "OK",
+    "filename": "/usr/local/nginx/html/",
+    "length": "524"
+  },
+  "base": {
+    "time_local": "03/Oct/2024:01:00:17 +0000",
+    "status": "404",
+    "scheme": "http",
+    "http_host": "6740.io",
+    "http_referer": "",
+    "http_user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
+    "body_bytes_sent": "146"
+  },
+  "proxy": {
+    "upstream_name": "upstream-default-backend",
+    "alternative_upstream_name": ""
+  },
+  "upstream": {
+    "addr": "127.0.0.1:8181",
+    "response_length": "146",
+    "status": "404"
+  }
+}

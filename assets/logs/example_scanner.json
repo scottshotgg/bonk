@@ -1,0 +1,32 @@
+{
+  "remote": {
+    "addr": "162.216.150.128",
+    "user": ""
+  },
+  "request": {
+    "id": "d50e0dd4f7ad4be13b93d501b561f0d7",
+    "method": "GET",
+    "uri": "/",
+    "completion": "OK",
+    "filename": "/usr/local/nginx/html/",
+    "length": "347"
+  },
+  "base": {
+    "time_local": "03/Oct/2024:05:02:28 +0000",
+    "status": "404",
+    "scheme": "http",
+    "http_host": "47.188.51.17:80",
+    "http_referer": "",
+    "http_user_agent": "Expanse, a Palo Alto Networks company, searches across the global IPv4 space multiple times per day to identify customers&#39; presences on the Internet. If you would like to be excluded from our scans, please send IP addresses/domains to: scaninfo@paloaltonetworks.com",
+    "body_bytes_sent": "146"
+  },
+  "proxy": {
+    "upstream_name": "upstream-default-backend",
+    "alternative_upstream_name": ""
+  },
+  "upstream": {
+    "addr": "127.0.0.1:8181",
+    "response_length": "146",
+    "status": "404"
+  }
+}

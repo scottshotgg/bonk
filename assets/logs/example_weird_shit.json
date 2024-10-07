@@ -1,0 +1,32 @@
+{
+  "remote": {
+    "addr": "152.42.214.140",
+    "user": ""
+  },
+  "request": {
+    "id": "22483277669ab89d99754383260ffeff",
+    "method": "",
+    "uri": "",
+    "completion": "OK",
+    "filename": "/usr/local/nginx/html",
+    "length": "0"
+  },
+  "base": {
+    "time_local": "03/Oct/2024:02:29:25 +0000",
+    "status": "400",
+    "scheme": "http",
+    "http_host": "",
+    "http_referer": "",
+    "http_user_agent": "",
+    "body_bytes_sent": "150"
+  },
+  "proxy": {
+    "upstream_name": "",
+    "alternative_upstream_name": ""
+  },
+  "upstream": {
+    "addr": "",
+    "response_length": "",
+    "status": ""
+  }
+}

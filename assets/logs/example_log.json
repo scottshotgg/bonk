@@ -1,0 +1,32 @@
+{
+  "remote": {
+    "addr": "10.32.2.61",
+    "user": ""
+  },
+  "request": {
+    "id": "c351b6cedd9441b7eea380d204a7c9e8",
+    "method": "GET",
+    "uri": "/",
+    "completion": "OK",
+    "filename": "/usr/local/nginx/html/",
+    "length": "74"
+  },
+  "base": {
+    "time_local": "03/Oct/2024:04:18:50 +0000",
+    "status": "404",
+    "scheme": "http",
+    "http_host": "dev.6740.io",
+    "http_referer": "",
+    "http_user_agent": "curl/8.9.1",
+    "body_bytes_sent": "146"
+  },
+  "proxy": {
+    "upstream_name": "upstream-default-backend",
+    "alternative_upstream_name": ""
+  },
+  "upstream": {
+    "addr": "127.0.0.1:8181",
+    "response_length": "146",
+    "status": "404"
+  }
+}

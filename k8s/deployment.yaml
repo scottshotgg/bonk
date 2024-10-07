@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bonk-controller
+  labels:
+    app: bonk-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bonk-controller
+  template:
+    metadata:
+      labels:
+        app: bonk-controller
+    spec:
+      containers:
+      - name: bonk-controller
+        image: registry.6740.io/library/bonk:latest
+        command:
+          - /bin/bonk
+        args:
+          - --namespace
+          - default
+          - --deployment
+          - ingress-nginx-controller
+          - --agent-addr
+          - 10.32.0.1:9876
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  namespace: default
+  name: bonk-controller
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - "pods"
+  - "pods/log"
+  verbs:
+  - "get"
+  - "watch"
+  - "list"
+  - "create"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: bonk-controller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: bonk-controller
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default

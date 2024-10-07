@@ -1,0 +1,9 @@
+[Unit]
+Description=Run Bonk IP ban hammer
+
+[Service]
+ExecStart=/usr/bin/bonk --is-agent
+User=root
+
+[Install]
+WantedBy=multi-user.target

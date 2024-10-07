@@ -1,0 +1,32 @@
+{
+  "remote": {
+    "addr": "152.42.214.140",
+    "user": ""
+  },
+  "request": {
+    "id": "43fb295f5d34b0c153476b5f45a66edf",
+    "method": "GET",
+    "uri": "/cdn-cgi/trace",
+    "completion": "OK",
+    "filename": "/usr/local/nginx/html/cdn-cgi/trace",
+    "length": "126"
+  },
+  "base": {
+    "time_local": "03/Oct/2024:02:29:23 +0000",
+    "status": "404",
+    "scheme": "http",
+    "http_host": "speed.cloudflare.com",
+    "http_referer": "",
+    "http_user_agent": "Mozilla/5.0",
+    "body_bytes_sent": "146"
+  },
+  "proxy": {
+    "upstream_name": "upstream-default-backend",
+    "alternative_upstream_name": ""
+  },
+  "upstream": {
+    "addr": "127.0.0.1:8181",
+    "response_length": "146",
+    "status": "404"
+  }
+}
