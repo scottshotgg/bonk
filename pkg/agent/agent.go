@@ -47,12 +47,12 @@ func (a *Agent) handler(rw http.ResponseWriter, r *http.Request) {
 		fmt.Println("error decoding body:", err)
 	}
 
-	// sudo ipset add myset-ip 107.115.171.57
+	// sudo ipset add bonk 107.115.171.57
 	var (
 		cmd  = "ipset"
 		args = []string{
 			"add",
-			"myset-ip",
+			"bonk",
 			req.IP,
 		}
 	)
