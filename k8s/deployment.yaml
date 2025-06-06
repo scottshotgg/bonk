@@ -17,6 +17,7 @@ spec:
       containers:
       - name: bonk-controller
         image: registry.6740.io/library/bonk:latest
+        imagePullPolicy: Always
         command:
           - /bin/bonk
         args:

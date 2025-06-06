@@ -1,4 +1,4 @@
-FROM golang:1.23.2-alpine3.20 AS builder
+FROM golang:1.24.4-alpine3.22 AS builder
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ RUN go mod download
 
 RUN CGO_ENABLED=0 go build -o bonk
 
-FROM alpine:3.20.3
+FROM alpine:3.22.0
 
 COPY --from=builder /app/bonk /bin/bonk
 

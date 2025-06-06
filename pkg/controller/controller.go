@@ -159,7 +159,6 @@ func (c *Controller) watchPodLogs(ctx context.Context, pod core_v1.Pod) error {
 
 		if shouldBan {
 			fmt.Println("bonk:", ip)
-			// // TODO: take this out
 			var _, banned = bannedIPs[ip.String()]
 			if banned {
 				fmt.Println("Already banned:", ip)
@@ -169,7 +168,7 @@ func (c *Controller) watchPodLogs(ctx context.Context, pod core_v1.Pod) error {
 			fmt.Println("Banning IP:", ip)
 
 			// fmt.Println("BAN HAMMER TIME:", l.Remote.Address)
-			// bannedIPs[l.Remote.Address.String()] = struct{}{}
+			bannedIPs[ip.String()] = struct{}{}
 			// // TODO: yeet this over to the router agent
 
 			err = c.banIP(ip)
