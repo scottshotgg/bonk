@@ -95,12 +95,12 @@ func (c *Controller) Run(ctx context.Context, workers int) error {
 	return nil
 }
 
-// var (
-// 	// TODO: I don't think this should be our responsibility
-// 	// but it might be cool to have some custom resources that maybe the
-// 	// router would query to keep them in sync
-// 	bannedIPs = map[string]struct{}{}
-// )
+var (
+	// TODO: I don't think this should be our responsibility
+	// but it might be cool to have some custom resources that maybe the
+	// router would query to keep them in sync
+	bannedIPs = map[string]struct{}{}
+)
 
 func (c *Controller) watchPodLogs(ctx context.Context, pod core_v1.Pod) error {
 	// TODO: namespace needs to be configurable
@@ -148,23 +148,25 @@ func (c *Controller) watchPodLogs(ctx context.Context, pod core_v1.Pod) error {
 			return err
 		}
 
+		// TODO: this should return a reason
 		ip, shouldBan, err := engine.Run(line)
 		if err != nil {
 			fmt.Println("err running rules engine:", err)
 			continue
 		}
 
-		// fmt.Println("Banning IP:", ip)
 		// fmt.Println(string(line))
 
 		if shouldBan {
 			fmt.Println("bonk:", ip)
 			// // TODO: take this out
-			// var _, banned = bannedIPs[l.Remote.Address.String()]
-			// if banned {
-			// 	// fmt.Println("Already banned:", l.Remote.Address)
-			// 	continue
-			// }
+			var _, banned = bannedIPs[ip.String()]
+			if banned {
+				fmt.Println("Already banned:", ip)
+				continue
+			}
+
+			fmt.Println("Banning IP:", ip)
 
 			// fmt.Println("BAN HAMMER TIME:", l.Remote.Address)
 			// bannedIPs[l.Remote.Address.String()] = struct{}{}
